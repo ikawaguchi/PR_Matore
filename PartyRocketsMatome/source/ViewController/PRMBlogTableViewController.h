@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PRTBlogTableViewController : UITableViewController
+@interface PRMBlogTableViewController : UITableViewController
 
 @end

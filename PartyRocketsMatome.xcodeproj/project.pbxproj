@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3F7420EDEBA44584A52EC99C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5B1E12B98ED477186831CE9 /* libPods.a */; };
-		4D9E0CA019BADA6100DFA976 /* PRTBlogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E0C9F19BADA6100DFA976 /* PRTBlogTableViewController.m */; };
+		4D9E0CA019BADA6100DFA976 /* PRMBlogTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E0C9F19BADA6100DFA976 /* PRMBlogTableViewController.m */; };
+		4D9E0CA419BAFE6B00DFA976 /* PRMBlogDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E0CA319BAFE6B00DFA976 /* PRMBlogDataManager.m */; };
 		4DF177F619B493A800B11DB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F519B493A800B11DB6 /* Foundation.framework */; };
 		4DF177F819B493A800B11DB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F719B493A800B11DB6 /* CoreGraphics.framework */; };
 		4DF177FA19B493A800B11DB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F919B493A800B11DB6 /* UIKit.framework */; };
@@ -17,7 +18,6 @@
 		4DF1780619B493A800B11DB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1780519B493A800B11DB6 /* AppDelegate.m */; };
 		4DF1780919B493A800B11DB6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1780719B493A800B11DB6 /* Main_iPhone.storyboard */; };
 		4DF1780C19B493A800B11DB6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1780A19B493A800B11DB6 /* Main_iPad.storyboard */; };
-		4DF1780F19B493A800B11DB6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1780E19B493A800B11DB6 /* ViewController.m */; };
 		4DF1781119B493A800B11DB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1781019B493A800B11DB6 /* Images.xcassets */; };
 		4DF1781819B493A800B11DB6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF1781719B493A800B11DB6 /* XCTest.framework */; };
 		4DF1781919B493A800B11DB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F519B493A800B11DB6 /* Foundation.framework */; };
@@ -37,8 +37,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4D9E0C9E19BADA6100DFA976 /* PRTBlogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRTBlogTableViewController.h; path = source/ViewController/PRTBlogTableViewController.h; sourceTree = "<group>"; };
-		4D9E0C9F19BADA6100DFA976 /* PRTBlogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRTBlogTableViewController.m; path = source/ViewController/PRTBlogTableViewController.m; sourceTree = "<group>"; };
+		4D9E0C9E19BADA6100DFA976 /* PRMBlogTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMBlogTableViewController.h; path = source/ViewController/PRMBlogTableViewController.h; sourceTree = "<group>"; };
+		4D9E0C9F19BADA6100DFA976 /* PRMBlogTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMBlogTableViewController.m; path = source/ViewController/PRMBlogTableViewController.m; sourceTree = "<group>"; };
+		4D9E0CA219BAFE6B00DFA976 /* PRMBlogDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMBlogDataManager.h; path = source/DataModel/PRMBlogDataManager.h; sourceTree = "<group>"; };
+		4D9E0CA319BAFE6B00DFA976 /* PRMBlogDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMBlogDataManager.m; path = source/DataModel/PRMBlogDataManager.m; sourceTree = "<group>"; };
 		4DF177F219B493A800B11DB6 /* PartyRocketsMatome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyRocketsMatome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF177F519B493A800B11DB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4DF177F719B493A800B11DB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -51,8 +53,6 @@
 		4DF1780519B493A800B11DB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4DF1780819B493A800B11DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		4DF1780B19B493A800B11DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		4DF1780D19B493A800B11DB6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4DF1780E19B493A800B11DB6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4DF1781019B493A800B11DB6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4DF1781619B493A800B11DB6 /* PartyRocketsMatomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyRocketsMatomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF1781719B493A800B11DB6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -91,10 +91,30 @@
 		4D9E0CA119BADA8700DFA976 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4D9E0C9E19BADA6100DFA976 /* PRTBlogTableViewController.h */,
-				4D9E0C9F19BADA6100DFA976 /* PRTBlogTableViewController.m */,
+				4D9E0C9E19BADA6100DFA976 /* PRMBlogTableViewController.h */,
+				4D9E0C9F19BADA6100DFA976 /* PRMBlogTableViewController.m */,
+				4DF1780719B493A800B11DB6 /* Main_iPhone.storyboard */,
+				4DF1780A19B493A800B11DB6 /* Main_iPad.storyboard */,
 			);
 			name = ViewController;
+			sourceTree = "<group>";
+		};
+		4D9E0CA519BAFFF300DFA976 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				4D9E0CA219BAFE6B00DFA976 /* PRMBlogDataManager.h */,
+				4D9E0CA319BAFE6B00DFA976 /* PRMBlogDataManager.m */,
+			);
+			name = DataModel;
+			sourceTree = "<group>";
+		};
+		4D9E0CA619BB002000DFA976 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4DF1780419B493A800B11DB6 /* AppDelegate.h */,
+				4DF1780519B493A800B11DB6 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 		4DF177E919B493A800B11DB6 = {
@@ -132,13 +152,9 @@
 		4DF177FB19B493A800B11DB6 /* PartyRocketsMatome */ = {
 			isa = PBXGroup;
 			children = (
+				4D9E0CA619BB002000DFA976 /* AppDelegate */,
+				4D9E0CA519BAFFF300DFA976 /* DataModel */,
 				4D9E0CA119BADA8700DFA976 /* ViewController */,
-				4DF1780419B493A800B11DB6 /* AppDelegate.h */,
-				4DF1780519B493A800B11DB6 /* AppDelegate.m */,
-				4DF1780719B493A800B11DB6 /* Main_iPhone.storyboard */,
-				4DF1780A19B493A800B11DB6 /* Main_iPad.storyboard */,
-				4DF1780D19B493A800B11DB6 /* ViewController.h */,
-				4DF1780E19B493A800B11DB6 /* ViewController.m */,
 				4DF1781019B493A800B11DB6 /* Images.xcassets */,
 				4DF177FC19B493A800B11DB6 /* Supporting Files */,
 			);
@@ -307,9 +323,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D9E0CA019BADA6100DFA976 /* PRTBlogTableViewController.m in Sources */,
-				4DF1780F19B493A800B11DB6 /* ViewController.m in Sources */,
+				4D9E0CA019BADA6100DFA976 /* PRMBlogTableViewController.m in Sources */,
 				4DF1780619B493A800B11DB6 /* AppDelegate.m in Sources */,
+				4D9E0CA419BAFE6B00DFA976 /* PRMBlogDataManager.m in Sources */,
 				4DF1780219B493A800B11DB6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
