@@ -26,6 +26,7 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 @property (nonatomic) PRMBlogDataManager *dataManager;
 @property (nonatomic) NSInteger pageNum;
 @property (nonatomic) NSInteger maxPageNum;
+@property (nonatomic) BOOL isFetch;
 
 @end
 
@@ -43,6 +44,10 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     [self.tableView setTableHeaderView:view];
     [self.tableView setTableFooterView:view];
     
+    // BackButtonのタイトルを消す
+    //UIBarButtonItem *backButton = self.navigationItem.backBarButtonItem;
+    //backButton.title = @"";
+    //[self.navigationItem setBackBarButtonItem:backButton];
     
     [self fetchData:1 maxPageNum:10];
 }
@@ -54,6 +59,8 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 
 
 - (void)fetchData:(NSInteger)count maxPageNum:(NSInteger)maxPageNum{
+    self.isFetch = YES;
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@page-%ld.html",PRMBaseUrl,(long)count]]];
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
@@ -96,9 +103,14 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
         if(count != maxPageNum){
             [self fetchData:count+1 maxPageNum:maxPageNum];
         }
+        else{
+            self.maxPageNum = maxPageNum;
+            self.isFetch = NO;
+        }
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        self.isFetch = NO;
         NSLog(@"%@", error.localizedDescription);
     }];
     [operation start];
@@ -154,8 +166,22 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     // ハイライト解除
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [[PRMAppDefaults currentDefaults] setBlogOpenUrl:self.dataManager.articleUrls[indexPath.row]];
+    [[PRMAppDefaults currentDefaults] setBlogOpenTitle:self.dataManager.titles[indexPath.row]];
+    
 }
 
+// TODO: webView内スクロール中
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    //NSLog(@"contentsize %lf offset %lf",scrollView.contentSize.height,scrollView.contentOffset.y);
+    if(scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height){
+        if(self.isFetch == NO){
+            [self fetchData:self.maxPageNum+1 maxPageNum:self.maxPageNum+10];
+        }
+        
+    }
+}
 
 
 

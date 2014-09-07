@@ -7,7 +7,7 @@
         <!--Blog Table View Controller - ブログ一覧-->
         <scene sceneID="k8h-WH-Ld2">
             <objects>
-                <tableViewController id="rpF-PY-RRx" customClass="PRMBlogTableViewController" sceneMemberID="viewController">
+                <tableViewController clearsSelectionOnViewWillAppear="NO" id="rpF-PY-RRx" customClass="PRMBlogTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="KLy-Ia-fX1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -47,6 +47,9 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="hJM-O5-2ib" kind="push" identifier="BlogWebSegue" id="gc1-SB-sAC"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -54,11 +57,49 @@
                             <outlet property="delegate" destination="rpF-PY-RRx" id="uuc-4e-fgQ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ブログ一覧" id="njd-qX-wJA"/>
+                    <navigationItem key="navigationItem" title="ブログ一覧" id="njd-qX-wJA">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="EGM-oA-aKR"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6H6-PV-6mG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-261" y="-1109"/>
+        </scene>
+        <!--Blog Web View Controller-->
+        <scene sceneID="0xf-CX-DHv">
+            <objects>
+                <viewController id="hJM-O5-2ib" customClass="PRMBlogWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Fik-T3-UfS"/>
+                        <viewControllerLayoutGuide type="bottom" id="6TC-5w-eVC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DrX-Qa-CxM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-Nc-v8X">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="DrX-Qa-CxM" id="eA0-cD-DjT"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="RpP-mc-UgC">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Tie-5m-oNg"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="ibWebView" destination="rNk-Nc-v8X" id="J28-NY-KFH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zRq-Xl-Guj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="-1109"/>
         </scene>
         <!--Navigation Controller - ブログ-->
         <scene sceneID="3lD-KA-MfZ">
