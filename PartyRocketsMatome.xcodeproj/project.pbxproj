@@ -12,6 +12,7 @@
 		4D9E0CA419BAFE6B00DFA976 /* PRMBlogDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E0CA319BAFE6B00DFA976 /* PRMBlogDataManager.m */; };
 		4D9E0CA919BB321100DFA976 /* PRMBlogWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E0CA819BB321100DFA976 /* PRMBlogWebViewController.m */; };
 		4D9E0CAD19BB454200DFA976 /* PRMAppDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D9E0CAC19BB454200DFA976 /* PRMAppDefaults.m */; };
+		4D9E0CB019BC52FD00DFA976 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D9E0CB219BC52FD00DFA976 /* Localizable.strings */; };
 		4DF177F619B493A800B11DB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F519B493A800B11DB6 /* Foundation.framework */; };
 		4DF177F819B493A800B11DB6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F719B493A800B11DB6 /* CoreGraphics.framework */; };
 		4DF177FA19B493A800B11DB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F919B493A800B11DB6 /* UIKit.framework */; };
@@ -47,6 +48,7 @@
 		4D9E0CA819BB321100DFA976 /* PRMBlogWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMBlogWebViewController.m; path = source/ViewController/PRMBlogWebViewController.m; sourceTree = "<group>"; };
 		4D9E0CAB19BB454200DFA976 /* PRMAppDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMAppDefaults.h; path = source/Common/PRMAppDefaults.h; sourceTree = "<group>"; };
 		4D9E0CAC19BB454200DFA976 /* PRMAppDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMAppDefaults.m; path = source/Common/PRMAppDefaults.m; sourceTree = "<group>"; };
+		4D9E0CB119BC52FD00DFA976 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DF177F219B493A800B11DB6 /* PartyRocketsMatome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PartyRocketsMatome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF177F519B493A800B11DB6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4DF177F719B493A800B11DB6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -184,6 +186,7 @@
 			children = (
 				4DF177FD19B493A800B11DB6 /* PartyRocketsMatome-Info.plist */,
 				4DF177FE19B493A800B11DB6 /* InfoPlist.strings */,
+				4D9E0CB219BC52FD00DFA976 /* Localizable.strings */,
 				4DF1780119B493A800B11DB6 /* main.m */,
 				4DF1780319B493A800B11DB6 /* PartyRocketsMatome-Prefix.pch */,
 			);
@@ -286,6 +289,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D9E0CB019BC52FD00DFA976 /* Localizable.strings in Resources */,
 				4DF1780C19B493A800B11DB6 /* Main_iPad.storyboard in Resources */,
 				4DF1781119B493A800B11DB6 /* Images.xcassets in Resources */,
 				4DF1780919B493A800B11DB6 /* Main_iPhone.storyboard in Resources */,
@@ -369,6 +373,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4D9E0CB219BC52FD00DFA976 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4D9E0CB119BC52FD00DFA976 /* Base */,
+			);
+			name = Localizable.strings;
+			path = resource;
+			sourceTree = "<group>";
+		};
 		4DF177FE19B493A800B11DB6 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

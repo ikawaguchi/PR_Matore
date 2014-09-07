@@ -22,6 +22,11 @@
 - (void)addThemesObject:(NSString *)object;
 - (void)addUpdatesObject:(NSString *)object;
 
+- (void)insertTitlesObject:(NSString *)object;
+- (void)insertArticleUrlsObject:(NSString *)object;
+- (void)insertThemesObject:(NSString *)object;
+- (void)insertUpdatesObject:(NSString *)object;
+
 - (NSInteger)count;
 
 @end

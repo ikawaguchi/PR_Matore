@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  PartyRocketsMatome
+
+  Created by 川口功 on 2014/09/07.
+  Copyright (c) 2014年 I.K. All rights reserved.
+*/
+
+
+"Last Updated" = "最終更新日";
+"Loading..." = "更新中だよ";
+"Release to refresh..." = "指を離してー!!";
+"Pull down to refresh..." = "もーっと引っ張って!";

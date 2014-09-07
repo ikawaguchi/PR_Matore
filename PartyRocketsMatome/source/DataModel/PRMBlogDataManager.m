@@ -46,6 +46,15 @@
     }
 }
 
+- (void)insertTitlesObject:(NSString *)object{
+    if (object == nil){
+        [self.titles insertObject:@"" atIndex:0];
+    }
+    else{
+        [self.titles insertObject:object atIndex:0];
+    }
+}
+
 - (void)addArticleUrlsObject:(NSString *)object{
     if (object == nil){
         [self.articleUrls addObject:@""];
@@ -54,6 +63,16 @@
         [self.articleUrls addObject:object];
     }
 }
+
+- (void)insertArticleUrlsObject:(NSString *)object{
+    if (object == nil){
+        [self.articleUrls insertObject:@"" atIndex:0];
+    }
+    else{
+        [self.articleUrls insertObject:object atIndex:0];
+    }
+}
+
 
 - (void)addThemesObject:(NSString *)object{
     if (object == nil){
@@ -64,12 +83,31 @@
     }
 }
 
+- (void)insertThemesObject:(NSString *)object{
+    if (object == nil){
+        [self.themes insertObject:@"" atIndex:0];
+    }
+    else{
+        [self.themes insertObject:object atIndex:0];
+    }
+}
+
+
 - (void)addUpdatesObject:(NSString *)object{
     if (object == nil){
         [self.updates addObject:@""];
     }
     else{
         [self.updates addObject:object];
+    }
+}
+
+- (void)insertUpdatesObject:(NSString *)object{
+    if (object == nil){
+        [self.updates insertObject:@"" atIndex:0];
+    }
+    else{
+        [self.updates insertObject:object atIndex:0];
     }
 }
 
