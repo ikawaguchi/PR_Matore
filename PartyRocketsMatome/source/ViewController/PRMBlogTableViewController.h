@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <EGOTableViewPullRefreshAndLoadMore/EGORefreshTableHeaderView.h>
 
-@interface PRMBlogTableViewController : UITableViewController<EGORefreshTableHeaderDelegate>
+@interface PRMBlogTableViewController : UITableViewController<EGORefreshTableHeaderDelegate,UITabBarControllerDelegate>
 
 
 @end

@@ -62,6 +62,8 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     
     //  update the last update date
 	[self.refreshHeaderView refreshLastUpdatedDate];
+    
+    [self.tabBarController setDelegate:self];
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -143,6 +145,8 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     [themeLabel setText:self.dataManager.themes[indexPath.row]];
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
+    thumbnailImageView.layer.masksToBounds = YES;
+    thumbnailImageView.layer.cornerRadius = 10.0f;
     if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"haru"]];
     }
@@ -306,6 +310,12 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 }
 
 
+-(void)tabBarController:(UITabBarController*)tabBarController didSelectViewController: (UIViewController*)viewController{
+    if(tabBarController.selectedIndex == 0){
+//        [self.tableView setContentOffset:CGPointZero animated:YES];
+    }
+    
+}
 
 
 

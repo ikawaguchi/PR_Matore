@@ -106,7 +106,7 @@
         <scene sceneID="3lD-KA-MfZ">
             <objects>
                 <navigationController definesPresentationContext="YES" id="1p9-4A-9WF" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ブログ" id="NTu-sR-wvf"/>
+                    <tabBarItem key="tabBarItem" title="ブログ" image="document" id="NTu-sR-wvf"/>
                     <navigationItem key="navigationItem" id="H8g-zf-AJz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1GE-R6-j7z">
                         <autoresizingMask key="autoresizingMask"/>
@@ -152,7 +152,7 @@
         <scene sceneID="CrP-GS-STd">
             <objects>
                 <navigationController definesPresentationContext="YES" id="nyw-cZ-AaM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Twitter" id="cWS-Ub-TeC"/>
+                    <tabBarItem key="tabBarItem" title="Twitter" image="twitter" id="cWS-Ub-TeC"/>
                     <navigationItem key="navigationItem" id="HPI-mq-HSC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rp8-mw-XVB">
                         <autoresizingMask key="autoresizingMask"/>
@@ -198,7 +198,7 @@
         <scene sceneID="tv9-Ww-ew0">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Dcx-44-eJE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="画像" id="xV7-ai-0tp"/>
+                    <tabBarItem key="tabBarItem" title="画像" image="photo" id="xV7-ai-0tp"/>
                     <navigationItem key="navigationItem" id="lUL-T6-1f6"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XCH-i0-7hL">
                         <autoresizingMask key="autoresizingMask"/>
@@ -244,7 +244,7 @@
         <scene sceneID="k8H-tb-s5c">
             <objects>
                 <navigationController definesPresentationContext="YES" id="xon-zR-L9q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="その他" id="iw1-ek-Itc"/>
+                    <tabBarItem key="tabBarItem" title="その他" image="settings" id="iw1-ek-Itc"/>
                     <navigationItem key="navigationItem" id="eM2-Gc-E7h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dht-yA-53e">
                         <autoresizingMask key="autoresizingMask"/>
@@ -297,6 +297,12 @@
             <point key="canvasLocation" x="-1424" y="-408"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="document" width="16" height="16"/>
+        <image name="photo" width="16" height="16"/>
+        <image name="settings" width="16" height="16"/>
+        <image name="twitter" width="16" height="16"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
