@@ -47,8 +47,6 @@
 // TODO: ページ読込開始時にインジケータをくるくるさせる
 -(void)webViewDidStartLoad:(UIWebView*)webView{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    [webView.scrollView setContentOffset:CGPointMake(0, 100)];
-    
 }
 
 // TODO: ページ読込完了時にインジケータを非表示にする

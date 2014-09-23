@@ -179,7 +179,7 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 #pragma mark UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    NSLog(@"contentsize %lf offset %lf",scrollView.contentSize.height,scrollView.contentOffset.y);
+   // NSLog(@"contentsize %lf offset %lf",scrollView.contentSize.height,scrollView.contentOffset.y);
     if(scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height){
         if(self.isFetch == NO){
             [self fetchData:self.maxPageNum+1 maxPageNum:self.maxPageNum+10];
