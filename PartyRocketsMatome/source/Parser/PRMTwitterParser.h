@@ -10,4 +10,7 @@
 
 @interface PRMTwitterParser : NSObject
 
++ (NSArray *)parse:(NSArray *)responseObject;
+
+
 @end

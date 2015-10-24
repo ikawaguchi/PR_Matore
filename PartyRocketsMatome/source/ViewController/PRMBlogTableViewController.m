@@ -99,7 +99,7 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             [self.dataManager addUpdatesObject:[node getAttributeNamed:@"datetime"]];
         }
         
-        NSLog(@"count %ld",count);
+   //    NSLog(@"count %ld",count);
         
         [self.tableView reloadData];
         

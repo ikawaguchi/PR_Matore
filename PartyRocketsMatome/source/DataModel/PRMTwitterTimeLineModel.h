@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSString *Title;
 @property (nonatomic) NSString *mainText;
+@property (nonatomic) CGFloat tableHeight;
 @property (nonatomic) UIImage *image;
 
 @end

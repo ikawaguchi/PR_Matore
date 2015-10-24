@@ -7,6 +7,8 @@
 //
 
 #import "PRMTwitterTableViewController.h"
+#import "PRMTwitterTimeLineModel.h"
+#import "PRMTwitterParser.h"
 
 #import <Accounts/ACAccountType.h>
 #import <Accounts/ACAccountStore.h>
@@ -20,6 +22,19 @@ static NSString *const twitterUserTimeLine = @"user_timeline.json";
 NS_ENUM(NSInteger, PRMTwitterType){
     PRMTwitterTimeLine = 0,
 };
+
+
+NS_ENUM(NSInteger, PRMTwitterTableTag){
+    PRMTwitterMainText = 1,
+};
+
+
+@interface PRMTwitterTableViewController()
+
+@property (nonatomic) NSMutableArray *timeLineModels;
+
+@end
+
 
 
 @interface PRMTwitterTableViewController ()
@@ -42,29 +57,48 @@ NS_ENUM(NSInteger, PRMTwitterType){
     [self.tableView setTableFooterView:view];
 
     self.accountStore = [ACAccountStore new];
+    self.timeLineModels = [NSMutableArray array];
+
+
+    [self fetchTwitterParam:PRMTwitterTimeLine];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-    [self fetchTwitterParam:PRMTwitterTimeLine];
 }
 
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 0;
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 0;
+    return [self.timeLineModels count];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    PRMTwitterTimeLineModel *model = self.timeLineModels[indexPath.row];
+  //  NSLog(@"height %lf",model.tableHeight);
+    return model.tableHeight;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"prototypeIdentifier" forIndexPath:indexPath];
+    PRMTwitterTimeLineModel *model = self.timeLineModels[indexPath.row];
+    
+    UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:PRMTwitterMainText];
+    [titleLabel setFrame:CGRectMake(titleLabel.frame.origin.x, titleLabel.frame.origin.y,
+                                    titleLabel.frame.size.width, cell.frame.size.height)];
+    [titleLabel setText:model.mainText];
+//    [titleLabel sizeToFit];
+    
+    return cell;
+}
+
+
 
 
 - (void)fetchTwitterParam:(NSInteger)TwitterType {
@@ -118,6 +152,17 @@ NS_ENUM(NSInteger, PRMTwitterType){
                                                         NSArray* jsonData = [NSJSONSerialization
                                                                              JSONObjectWithData:responseData
                                                                              options:NSJSONReadingAllowFragments error:&e];
+                                                        
+                                                        switch (TwitterType) {
+                                                            case PRMTwitterTimeLine:
+                                                                [self.timeLineModels addObjectsFromArray:[PRMTwitterParser parse:jsonData]];
+                                                                [self.tableView reloadData];
+                                                                [self.tableView setNeedsDisplay];
+                                                                break;
+                                                                
+                                                            default:
+                                                                break;
+                                                        }
                                                         
                                                         
                                                         for(NSDictionary *childObject in jsonData){

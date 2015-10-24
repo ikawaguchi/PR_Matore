@@ -1,0 +1,69 @@
+PODS:
+  - AFNetworking (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+    - AFNetworking/UIKit
+  - AFNetworking/NSURLConnection (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.4.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.4.1)
+  - AFNetworking/Security (2.4.1)
+  - AFNetworking/Serialization (2.4.1)
+  - AFNetworking/UIKit (2.4.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - BlocksKit (2.2.5):
+    - BlocksKit/All
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - EGOTableViewPullRefreshAndLoadMore (1.0.4)
+  - GoogleAnalytics-iOS-SDK (3.0.3)
+  - KissXML (5.0)
+  - NJKScrollFullScreen (0.2.3)
+  - NJKWebViewProgress (0.2.3):
+    - NJKWebViewProgress/Core
+    - NJKWebViewProgress/ProgressView
+  - NJKWebViewProgress/Core (0.2.3)
+  - NJKWebViewProgress/ProgressView (0.2.3)
+  - Objective-C-HMTL-Parser (0.0.1)
+
+DEPENDENCIES:
+  - AFNetworking (~> 2.0)
+  - BlocksKit
+  - EGOTableViewPullRefreshAndLoadMore
+  - GoogleAnalytics-iOS-SDK (= 3.0.3)
+  - KissXML
+  - NJKScrollFullScreen
+  - NJKWebViewProgress
+  - Objective-C-HMTL-Parser
+
+SPEC CHECKSUMS:
+  AFNetworking: 0aabc6fae66d6e5d039eeb21c315843c7aae51ab
+  BlocksKit: 4439e7f30a9f90743462ca63545a15c1f4304cef
+  EGOTableViewPullRefreshAndLoadMore: 1dcd0f78d7aa8dee28adf64891b627904be8cd71
+  GoogleAnalytics-iOS-SDK: ee5322bf919d731d34ff3c8d891301e8f1e0e873
+  KissXML: e537c38b18ede903ee6de45953a9bd86c131ebe9
+  NJKScrollFullScreen: b441d587e5b16d1dd1123d7e51eed787246b316a
+  NJKWebViewProgress: 721b57080c840c76f70ff6c2dda4f836ee1b27c1
+  Objective-C-HMTL-Parser: f81bfc686fa447486477b7a2ef0cdca36d516b48
+
+COCOAPODS: 0.33.1
