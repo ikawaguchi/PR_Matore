@@ -9,6 +9,7 @@
 #import "PRMBlogTableViewController.h"
 #import "PRMBlogDataManager.h"
 #import <HTMLParser.h>
+#import <AFNetworking/AFNetworking.h>
 
 
 NS_ENUM(NSInteger, PRMTableTag){

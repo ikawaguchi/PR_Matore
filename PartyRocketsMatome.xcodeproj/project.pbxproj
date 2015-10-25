@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		036206655974C3F42E2AABD5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		4D9BCE0219D102620086B21B /* PRMTwitterTimeLineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMTwitterTimeLineModel.h; path = source/DataModel/PRMTwitterTimeLineModel.h; sourceTree = "<group>"; };
 		4D9BCE0319D102620086B21B /* PRMTwitterTimeLineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMTwitterTimeLineModel.m; path = source/DataModel/PRMTwitterTimeLineModel.m; sourceTree = "<group>"; };
 		4D9BCE0619D1348B0086B21B /* PRMTwitterParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMTwitterParser.h; path = source/Parser/PRMTwitterParser.h; sourceTree = "<group>"; };
@@ -83,7 +84,7 @@
 		4DF1781F19B493A800B11DB6 /* PartyRocketsMatomeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PartyRocketsMatomeTests-Info.plist"; sourceTree = "<group>"; };
 		4DF1782119B493A800B11DB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4DF1782319B493A800B11DB6 /* PartyRocketsMatomeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PartyRocketsMatomeTests.m; sourceTree = "<group>"; };
-		6FB101A85F824A36B073DEC6 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		AA296748F8432D608132EF7D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		B5B1E12B98ED477186831CE9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -176,7 +177,7 @@
 				4DF1781D19B493A800B11DB6 /* PartyRocketsMatomeTests */,
 				4DF177F419B493A800B11DB6 /* Frameworks */,
 				4DF177F319B493A800B11DB6 /* Products */,
-				6FB101A85F824A36B073DEC6 /* Pods.xcconfig */,
+				B546540FF0512DF14F6DE061 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,6 +246,15 @@
 				4DF1782019B493A800B11DB6 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B546540FF0512DF14F6DE061 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AA296748F8432D608132EF7D /* Pods.debug.xcconfig */,
+				036206655974C3F42E2AABD5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -371,7 +381,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -533,7 +543,7 @@
 		};
 		4DF1782819B493A800B11DB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FB101A85F824A36B073DEC6 /* Pods.xcconfig */;
+			baseConfigurationReference = AA296748F8432D608132EF7D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -542,14 +552,14 @@
 				INFOPLIST_FILE = "PartyRocketsMatome/PartyRocketsMatome-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		4DF1782919B493A800B11DB6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6FB101A85F824A36B073DEC6 /* Pods.xcconfig */;
+			baseConfigurationReference = 036206655974C3F42E2AABD5 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -558,7 +568,7 @@
 				INFOPLIST_FILE = "PartyRocketsMatome/PartyRocketsMatome-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
