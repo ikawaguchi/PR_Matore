@@ -43,8 +43,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kre-yw-TvQ">
-                                            <rect key="frame" x="13" y="11" width="50" height="57"/>
+                                        <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kre-yw-TvQ">
+                                            <rect key="frame" x="6" y="10" width="58" height="58.5"/>
                                             <animations/>
                                         </imageView>
                                     </subviews>

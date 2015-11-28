@@ -146,8 +146,10 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     [themeLabel setText:self.dataManager.themes[indexPath.row]];
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
-    thumbnailImageView.layer.masksToBounds = YES;
-    thumbnailImageView.layer.cornerRadius = 10.0f;
+//    thumbnailImageView.layer.masksToBounds = YES;
+//    thumbnailImageView.layer.cornerRadius = 10.0f;
+//    thumbnailImageView.layer.borderWidth  = 0.5f;
+    
     if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"haru"]];
     }
@@ -156,6 +158,22 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     }
     else if([self.dataManager.themes[indexPath.row] isEqualToString:@"アカリ日記"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"akari"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"ARISAブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"ari"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"HIMEKAブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"hime"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"NANASEブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"nana"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"AYUMIブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"ayu"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"ブログ"] ||
+            [self.dataManager.themes[indexPath.row] isEqualToString:@"お知らせ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"all"]];
     }
     
     
