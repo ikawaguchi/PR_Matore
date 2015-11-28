@@ -33,6 +33,8 @@
 		4DF1781A19B493A800B11DB6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F919B493A800B11DB6 /* UIKit.framework */; };
 		4DF1782219B493A800B11DB6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1782019B493A800B11DB6 /* InfoPlist.strings */; };
 		4DF1782419B493A800B11DB6 /* PartyRocketsMatomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1782319B493A800B11DB6 /* PartyRocketsMatomeTests.m */; };
+		AAD0D76C1C096ABC00D75F27 /* PRMBaseTabbarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD0D76B1C096ABC00D75F27 /* PRMBaseTabbarViewController.m */; };
+		AAD0D76F1C09714900D75F27 /* PRMHPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD0D76E1C09714900D75F27 /* PRMHPWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,10 @@
 		4DF1782119B493A800B11DB6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4DF1782319B493A800B11DB6 /* PartyRocketsMatomeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PartyRocketsMatomeTests.m; sourceTree = "<group>"; };
 		AA296748F8432D608132EF7D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		AAD0D76A1C096ABC00D75F27 /* PRMBaseTabbarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMBaseTabbarViewController.h; path = source/ViewController/PRMBaseTabbarViewController.h; sourceTree = "<group>"; };
+		AAD0D76B1C096ABC00D75F27 /* PRMBaseTabbarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMBaseTabbarViewController.m; path = source/ViewController/PRMBaseTabbarViewController.m; sourceTree = "<group>"; };
+		AAD0D76D1C09714900D75F27 /* PRMHPWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMHPWebViewController.h; path = source/ViewController/PRMHPWebViewController.h; sourceTree = "<group>"; };
+		AAD0D76E1C09714900D75F27 /* PRMHPWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMHPWebViewController.m; path = source/ViewController/PRMHPWebViewController.m; sourceTree = "<group>"; };
 		B5B1E12B98ED477186831CE9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,6 +133,10 @@
 		4D9E0CA119BADA8700DFA976 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AAD0D76D1C09714900D75F27 /* PRMHPWebViewController.h */,
+				AAD0D76E1C09714900D75F27 /* PRMHPWebViewController.m */,
+				AAD0D76A1C096ABC00D75F27 /* PRMBaseTabbarViewController.h */,
+				AAD0D76B1C096ABC00D75F27 /* PRMBaseTabbarViewController.m */,
 				4D9E0C9E19BADA6100DFA976 /* PRMBlogTableViewController.h */,
 				4D9E0C9F19BADA6100DFA976 /* PRMBlogTableViewController.m */,
 				4D9E0CA719BB321100DFA976 /* PRMBlogWebViewController.h */,
@@ -401,6 +411,8 @@
 				4D9BCE0419D102620086B21B /* PRMTwitterTimeLineModel.m in Sources */,
 				4D9D281519C86F5E00E1967A /* PRMCommon.m in Sources */,
 				4D9E0CA919BB321100DFA976 /* PRMBlogWebViewController.m in Sources */,
+				AAD0D76C1C096ABC00D75F27 /* PRMBaseTabbarViewController.m in Sources */,
+				AAD0D76F1C09714900D75F27 /* PRMHPWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
