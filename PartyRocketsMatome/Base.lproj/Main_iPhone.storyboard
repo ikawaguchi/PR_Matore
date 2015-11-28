@@ -183,38 +183,6 @@
             </objects>
             <point key="canvasLocation" x="-807" y="-408"/>
         </scene>
-        <!--その他-->
-        <scene sceneID="Ift-gq-VN9">
-            <objects>
-                <tableViewController id="EUm-Xc-5Gr" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="EbZ-6n-Qtp">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="fYJ-0O-azg">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fYJ-0O-azg" id="sj1-NZ-34X">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableViewCellContentView>
-                                <animations/>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="EUm-Xc-5Gr" id="Cgg-FN-NbK"/>
-                            <outlet property="delegate" destination="EUm-Xc-5Gr" id="iRx-EL-Sag"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="その他" id="Byr-Em-JXs"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fw9-o1-l84" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-289" y="986"/>
-        </scene>
         <!--スケジュール-->
         <scene sceneID="k8H-tb-s5c">
             <objects>
@@ -226,7 +194,7 @@
                         <animations/>
                     </navigationBar>
                     <connections>
-                        <segue destination="EUm-Xc-5Gr" kind="relationship" relationship="rootViewController" id="sts-GT-z2t"/>
+                        <segue destination="pU6-kL-5FY" kind="relationship" relationship="rootViewController" id="z3T-Y4-oVZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSw-Ob-vBz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -292,10 +260,10 @@
             </objects>
             <point key="canvasLocation" x="-807" y="250"/>
         </scene>
-        <!--Web View Controller-->
+        <!--公式サイト-->
         <scene sceneID="QbY-BT-pcy">
             <objects>
-                <viewController id="Ehq-Qk-89l" customClass="PRMHPWebViewController" sceneMemberID="viewController">
+                <viewController title="公式サイト" id="Ehq-Qk-89l" customClass="PRMHPWebViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="r1o-7y-g5i"/>
                         <viewControllerLayoutGuide type="bottom" id="Gml-86-1zn"/>
@@ -328,6 +296,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAV-kt-i9n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-273" y="250"/>
+        </scene>
+        <!--スケジュール-->
+        <scene sceneID="x5L-Xj-OkP">
+            <objects>
+                <viewController title="スケジュール" id="pU6-kL-5FY" customClass="PRMScheduleWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DE1-FW-jEe"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Ha-jx-1fV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B9f-is-VMo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBR-68-nu9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="B9f-is-VMo" id="6CK-mQ-KeW"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="X7t-dp-N97">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2YQ-A9-l1L"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="ibWebView" destination="eBR-68-nu9" id="MpF-gC-TPi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YZB-gc-uy6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-273" y="986"/>
         </scene>
     </scenes>
     <resources>

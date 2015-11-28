@@ -6,17 +6,17 @@
 //  Copyright (c) 2014年 I.K. All rights reserved.
 //
 
-#import "PRMHPWebViewController.h"
+#import "PRMScheduleWebViewController.h"
 #import "UIViewController+NJKFullScreenSupport.h"
 
 
-@interface PRMHPWebViewController ()<UITabBarControllerDelegate>
+@interface PRMScheduleWebViewController ()
 @property (weak, nonatomic) IBOutlet UIWebView *ibWebView;
 @property (nonatomic) NJKScrollFullScreen *fullScreen;
 
 @end
 
-@implementation PRMHPWebViewController
+@implementation PRMScheduleWebViewController
 
 - (void)viewDidLoad
 {
@@ -27,8 +27,8 @@
     NSURLRequest *request;
     
     //指定URLがなければAmazonを、あればそのURLを開く
-    request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.partyrockets.net"]];
-    [self.navigationItem setTitle:[[PRMAppDefaults currentDefaults] blogOpenTitle]];
+    request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://m.partyrockets.net/page/schedule/?"]];
+    [self setTitle:@"スケジュール"];
     [self.ibWebView loadRequest:request];
     
     
@@ -36,7 +36,6 @@
     self.ibWebView.scrollView.delegate = (id)self.fullScreen; // cast for surpress incompatible warnings
     self.fullScreen.delegate = self;
     
-    [self.tabBarController setDelegate:self];
     [self.ibWebView setScalesPageToFit:YES];    
 }
 

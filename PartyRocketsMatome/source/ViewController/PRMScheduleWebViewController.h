@@ -10,6 +10,6 @@
 #import <NJKScrollFullScreen.h>
 
 
-@interface PRMHPWebViewController : UIViewController<UIWebViewDelegate,UIScrollViewDelegate,NJKScrollFullscreenDelegate>
+@interface PRMScheduleWebViewController : UIViewController<UIWebViewDelegate,UIScrollViewDelegate,NJKScrollFullscreenDelegate>
 
 @end
