@@ -26,7 +26,6 @@
 		4DF1780219B493A800B11DB6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1780119B493A800B11DB6 /* main.m */; };
 		4DF1780619B493A800B11DB6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1780519B493A800B11DB6 /* AppDelegate.m */; };
 		4DF1780919B493A800B11DB6 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1780719B493A800B11DB6 /* Main_iPhone.storyboard */; };
-		4DF1780C19B493A800B11DB6 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1780A19B493A800B11DB6 /* Main_iPad.storyboard */; };
 		4DF1781119B493A800B11DB6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DF1781019B493A800B11DB6 /* Images.xcassets */; };
 		4DF1781819B493A800B11DB6 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF1781719B493A800B11DB6 /* XCTest.framework */; };
 		4DF1781919B493A800B11DB6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DF177F519B493A800B11DB6 /* Foundation.framework */; };
@@ -79,7 +78,6 @@
 		4DF1780419B493A800B11DB6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4DF1780519B493A800B11DB6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4DF1780819B493A800B11DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		4DF1780B19B493A800B11DB6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		4DF1781019B493A800B11DB6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4DF1781619B493A800B11DB6 /* PartyRocketsMatomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PartyRocketsMatomeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DF1781719B493A800B11DB6 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -133,10 +131,10 @@
 		4D9E0CA119BADA8700DFA976 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				AAF9BBA61C098B6700AF6F61 /* PRMScheduleWebViewController.h */,
-				AAF9BBA71C098B6700AF6F61 /* PRMScheduleWebViewController.m */,
 				AAD0D76D1C09714900D75F27 /* PRMHPWebViewController.h */,
 				AAD0D76E1C09714900D75F27 /* PRMHPWebViewController.m */,
+				AAF9BBA61C098B6700AF6F61 /* PRMScheduleWebViewController.h */,
+				AAF9BBA71C098B6700AF6F61 /* PRMScheduleWebViewController.m */,
 				4D9E0C9E19BADA6100DFA976 /* PRMBlogTableViewController.h */,
 				4D9E0C9F19BADA6100DFA976 /* PRMBlogTableViewController.m */,
 				4D9E0CA719BB321100DFA976 /* PRMBlogWebViewController.h */,
@@ -182,7 +180,6 @@
 			isa = PBXGroup;
 			children = (
 				4DF1780719B493A800B11DB6 /* Main_iPhone.storyboard */,
-				4DF1780A19B493A800B11DB6 /* Main_iPad.storyboard */,
 				4DF177FB19B493A800B11DB6 /* PartyRocketsMatome */,
 				4DF1781D19B493A800B11DB6 /* PartyRocketsMatomeTests */,
 				4DF177F419B493A800B11DB6 /* Frameworks */,
@@ -346,7 +343,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D9E0CB019BC52FD00DFA976 /* Localizable.strings in Resources */,
-				4DF1780C19B493A800B11DB6 /* Main_iPad.storyboard in Resources */,
 				4DF1781119B493A800B11DB6 /* Images.xcassets in Resources */,
 				4DF1780919B493A800B11DB6 /* Main_iPhone.storyboard in Resources */,
 				4DF1780019B493A800B11DB6 /* InfoPlist.strings in Resources */,
@@ -458,15 +454,6 @@
 				4DF1780819B493A800B11DB6 /* Base */,
 			);
 			name = Main_iPhone.storyboard;
-			path = PartyRocketsMatome;
-			sourceTree = "<group>";
-		};
-		4DF1780A19B493A800B11DB6 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4DF1780B19B493A800B11DB6 /* Base */,
-			);
-			name = Main_iPad.storyboard;
 			path = PartyRocketsMatome;
 			sourceTree = "<group>";
 		};

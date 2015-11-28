@@ -36,7 +36,8 @@
     self.ibWebView.scrollView.delegate = (id)self.fullScreen; // cast for surpress incompatible warnings
     self.fullScreen.delegate = self;
     
-    [self.ibWebView setScalesPageToFit:YES];    
+    [self.ibWebView setScalesPageToFit:YES];
+    [self.ibWebView.scrollView setBounces:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{

@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4bJ-bB-vx8">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--ブログ一覧-->
@@ -81,8 +82,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-Nc-v8X">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNk-Nc-v8X">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -92,6 +93,12 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rNk-Nc-v8X" firstAttribute="top" secondItem="DrX-Qa-CxM" secondAttribute="topMargin" id="6vy-8k-Thh"/>
+                            <constraint firstItem="rNk-Nc-v8X" firstAttribute="leading" secondItem="DrX-Qa-CxM" secondAttribute="leadingMargin" constant="-16" id="GLg-ry-CSg"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="rNk-Nc-v8X" secondAttribute="bottom" id="LKd-wZ-5L4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rNk-Nc-v8X" secondAttribute="trailing" constant="-16" id="f9b-k6-ppc"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="RpP-mc-UgC">
@@ -272,8 +279,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjR-RZ-pqj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TjR-RZ-pqj">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -283,6 +290,12 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="TjR-RZ-pqj" firstAttribute="leading" secondItem="OuQ-iX-YG2" secondAttribute="leadingMargin" constant="-16" id="0cX-Pp-TUF"/>
+                            <constraint firstItem="TjR-RZ-pqj" firstAttribute="top" secondItem="OuQ-iX-YG2" secondAttribute="topMargin" id="MWD-nA-5Yh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TjR-RZ-pqj" secondAttribute="trailing" constant="-16" id="Upo-Mi-tSG"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="TjR-RZ-pqj" secondAttribute="bottom" id="o8g-ok-qGs"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="qkH-XO-ap6">
@@ -309,8 +322,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBR-68-nu9">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="620"/>
+                            <webView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eBR-68-nu9">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -320,6 +333,12 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eBR-68-nu9" firstAttribute="top" secondItem="B9f-is-VMo" secondAttribute="topMargin" id="1gP-xG-1DZ"/>
+                            <constraint firstItem="eBR-68-nu9" firstAttribute="leading" secondItem="B9f-is-VMo" secondAttribute="leadingMargin" constant="-16" id="6Ca-gL-qPq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eBR-68-nu9" secondAttribute="trailing" constant="-16" id="Y8Y-aD-CMQ"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="eBR-68-nu9" secondAttribute="bottom" id="Yma-Fk-V2l"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <navigationItem key="navigationItem" id="X7t-dp-N97">

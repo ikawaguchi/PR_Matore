@@ -37,6 +37,7 @@
     self.fullScreen.delegate = self;
     
     [self.ibWebView setScalesPageToFit:YES];    
+    [self.ibWebView.scrollView setBounces:NO];
 }
 
 - (void)viewWillDisappear:(BOOL)animated{
