@@ -57,28 +57,22 @@
 
 - (void)scrollFullScreen:(NJKScrollFullScreen *)proxy scrollViewDidScrollUp:(CGFloat)deltaY
 {
- //   NSLog(@"deltaY %lf",deltaY);
     [self moveNavigtionBar:deltaY animated:YES];
-    [self moveTabBar:-deltaY animated:YES];
 }
 
 - (void)scrollFullScreen:(NJKScrollFullScreen *)proxy scrollViewDidScrollDown:(CGFloat)deltaY
 {
- //   NSLog(@"deltaY %lf",deltaY);
     [self moveNavigtionBar:deltaY animated:YES];
-    [self moveTabBar:-deltaY animated:YES];
 }
 
 - (void)scrollFullScreenScrollViewDidEndDraggingScrollUp:(NJKScrollFullScreen *)proxy
 {
     [self hideNavigationBar:YES];
-   // [self hideTabBar:YES];
 }
 
 - (void)scrollFullScreenScrollViewDidEndDraggingScrollDown:(NJKScrollFullScreen *)proxy
 {
     [self showNavigationBar:YES];
- //   [self showTabBar:YES];
 }
 
 
