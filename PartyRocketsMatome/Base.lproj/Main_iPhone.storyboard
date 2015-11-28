@@ -176,7 +176,7 @@
         <scene sceneID="CrP-GS-STd">
             <objects>
                 <navigationController definesPresentationContext="YES" id="nyw-cZ-AaM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="お気に入り" image="twitter" id="cWS-Ub-TeC"/>
+                    <tabBarItem key="tabBarItem" title="お気に入り" image="favorite" id="cWS-Ub-TeC"/>
                     <navigationItem key="navigationItem" id="HPI-mq-HSC"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rp8-mw-XVB">
                         <autoresizingMask key="autoresizingMask"/>
@@ -194,7 +194,7 @@
         <scene sceneID="k8H-tb-s5c">
             <objects>
                 <navigationController definesPresentationContext="YES" id="xon-zR-L9q" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="スケジュール" image="settings" id="iw1-ek-Itc"/>
+                    <tabBarItem key="tabBarItem" title="スケジュール" image="schedule" id="iw1-ek-Itc"/>
                     <navigationItem key="navigationItem" id="eM2-Gc-E7h"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dht-yA-53e">
                         <autoresizingMask key="autoresizingMask"/>
@@ -253,7 +253,7 @@
         <scene sceneID="IoH-Gk-8ZY">
             <objects>
                 <navigationController definesPresentationContext="YES" id="QYb-KD-v5D" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="公式サイト" image="blackArrow.png" id="xGs-Y8-o8I"/>
+                    <tabBarItem key="tabBarItem" title="公式サイト" image="HP" id="xGs-Y8-o8I"/>
                     <navigationItem key="navigationItem" id="5gD-Qp-tIw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8I6-F0-hH1">
                         <autoresizingMask key="autoresizingMask"/>
@@ -355,10 +355,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="blackArrow.png" width="23" height="60"/>
-        <image name="document" width="16" height="16"/>
-        <image name="settings" width="16" height="16"/>
-        <image name="twitter" width="16" height="16"/>
+        <image name="HP" width="59" height="39"/>
+        <image name="document" width="58" height="38"/>
+        <image name="favorite" width="56" height="36"/>
+        <image name="schedule" width="50" height="37"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
