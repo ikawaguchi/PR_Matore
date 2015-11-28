@@ -34,6 +34,7 @@
 		4DF1782419B493A800B11DB6 /* PartyRocketsMatomeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF1782319B493A800B11DB6 /* PartyRocketsMatomeTests.m */; };
 		AAD0D76F1C09714900D75F27 /* PRMHPWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD0D76E1C09714900D75F27 /* PRMHPWebViewController.m */; };
 		AAF9BBA81C098B6700AF6F61 /* PRMScheduleWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BBA71C098B6700AF6F61 /* PRMScheduleWebViewController.m */; };
+		AAF9BBAB1C099F9900AF6F61 /* PRMFavoriteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAF9BBAA1C099F9900AF6F61 /* PRMFavoriteTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,8 @@
 		AAD0D76E1C09714900D75F27 /* PRMHPWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMHPWebViewController.m; path = source/ViewController/PRMHPWebViewController.m; sourceTree = "<group>"; };
 		AAF9BBA61C098B6700AF6F61 /* PRMScheduleWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMScheduleWebViewController.h; path = source/ViewController/PRMScheduleWebViewController.h; sourceTree = "<group>"; };
 		AAF9BBA71C098B6700AF6F61 /* PRMScheduleWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMScheduleWebViewController.m; path = source/ViewController/PRMScheduleWebViewController.m; sourceTree = "<group>"; };
+		AAF9BBA91C099F9900AF6F61 /* PRMFavoriteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PRMFavoriteTableViewController.h; path = source/ViewController/PRMFavoriteTableViewController.h; sourceTree = "<group>"; };
+		AAF9BBAA1C099F9900AF6F61 /* PRMFavoriteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PRMFavoriteTableViewController.m; path = source/ViewController/PRMFavoriteTableViewController.m; sourceTree = "<group>"; };
 		B5B1E12B98ED477186831CE9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -131,6 +134,8 @@
 		4D9E0CA119BADA8700DFA976 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				AAF9BBA91C099F9900AF6F61 /* PRMFavoriteTableViewController.h */,
+				AAF9BBAA1C099F9900AF6F61 /* PRMFavoriteTableViewController.m */,
 				AAD0D76D1C09714900D75F27 /* PRMHPWebViewController.h */,
 				AAD0D76E1C09714900D75F27 /* PRMHPWebViewController.m */,
 				AAF9BBA61C098B6700AF6F61 /* PRMScheduleWebViewController.h */,
@@ -406,6 +411,7 @@
 				4D9E0CAD19BB454200DFA976 /* PRMAppDefaults.m in Sources */,
 				4DF1780219B493A800B11DB6 /* main.m in Sources */,
 				4D9BCE0419D102620086B21B /* PRMTwitterTimeLineModel.m in Sources */,
+				AAF9BBAB1C099F9900AF6F61 /* PRMFavoriteTableViewController.m in Sources */,
 				4D9D281519C86F5E00E1967A /* PRMCommon.m in Sources */,
 				4D9E0CA919BB321100DFA976 /* PRMBlogWebViewController.m in Sources */,
 				AAD0D76F1C09714900D75F27 /* PRMHPWebViewController.m in Sources */,
