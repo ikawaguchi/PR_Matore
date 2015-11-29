@@ -47,8 +47,22 @@
                                             <rect key="frame" x="6" y="10" width="58" height="58.5"/>
                                             <animations/>
                                         </imageView>
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxj-Fa-Xng">
+                                            <rect key="frame" x="207" y="48" width="80" height="23"/>
+                                            <animations/>
+                                            <state key="normal" backgroundImage="favorite_off">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="favoriteButtonTouched:event:" destination="rpF-PY-RRx" eventType="touchUpInside" id="CNV-iK-663"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Dxj-Fa-Xng" secondAttribute="bottom" constant="0.5" id="LEp-Ih-uvs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Dxj-Fa-Xng" secondAttribute="trailing" constant="-8" id="tjj-eb-GzD"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
@@ -379,6 +393,7 @@
         <image name="HP" width="59" height="39"/>
         <image name="document" width="58" height="38"/>
         <image name="favorite" width="56" height="36"/>
+        <image name="favorite_off" width="80" height="20"/>
         <image name="schedule" width="50" height="37"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

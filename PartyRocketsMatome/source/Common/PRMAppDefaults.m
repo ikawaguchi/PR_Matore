@@ -7,9 +7,11 @@
 //
 
 #import "PRMAppDefaults.h"
+#import "PRMBlogDataManager.h"
 
 NSString *const PRMAppDefaultsBlogOpenUrl = @"PRMAppDefaultsBlogOpenUrl";
 NSString *const PRMAppDefaultsBlogOpenTitle = @"PRMAppDefaultsBlogOpenTitle";
+NSString *const PRMAppDefaultsFavoriteBlogs = @"PRMAppDefaultsFavoriteBlogs";
 
 
 @implementation PRMAppDefaults
@@ -72,6 +74,14 @@ static PRMAppDefaults *currentDefaults = nil;
 
 - (void)setBlogOpenTitle:(NSString *)param{
     [[self defaults] setObject:param forKey:PRMAppDefaultsBlogOpenTitle];
+}
+
+- (PRMBlogDataManager *)favoriteBlogs{
+    return [[self defaults] objectForKey:PRMAppDefaultsFavoriteBlogs];
+}
+
+- (void)setFavoriteBlogs:(PRMBlogDataManager *)param{
+    [[self defaults] setObject:param forKey:PRMAppDefaultsFavoriteBlogs];
 }
 
 

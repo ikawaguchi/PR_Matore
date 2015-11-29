@@ -14,6 +14,7 @@
 @property (readonly, nonatomic) NSMutableArray *articleUrls;
 @property (readonly, nonatomic) NSMutableArray *themes;
 @property (readonly, nonatomic) NSMutableArray *updates;
+@property (readonly, nonatomic) NSMutableArray *isFavorite;
 
 
 
@@ -21,11 +22,15 @@
 - (void)addArticleUrlsObject:(NSString *)object;
 - (void)addThemesObject:(NSString *)object;
 - (void)addUpdatesObject:(NSString *)object;
+- (void)addIsFavorite:(Boolean)object;
+
 
 - (void)insertTitlesObject:(NSString *)object;
 - (void)insertArticleUrlsObject:(NSString *)object;
 - (void)insertThemesObject:(NSString *)object;
 - (void)insertUpdatesObject:(NSString *)object;
+- (void)insertIsFavorite:(Boolean)object;
+
 
 - (NSInteger)count;
 

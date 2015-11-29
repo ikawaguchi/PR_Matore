@@ -17,6 +17,7 @@ NS_ENUM(NSInteger, PRMTableTag){
     PRMTableUpdateLabel = 2,
     PRMTableThemeLabel = 3,
     PRMTableImageView = 4,
+    PRMTableFavoriteButton = 5,
 };
 
 static NSInteger const PRMTableHeight = 80;
@@ -100,6 +101,8 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             [self.dataManager addUpdatesObject:[node getAttributeNamed:@"datetime"]];
         }
         
+        [self.dataManager addIsFavorite:NO];
+        
    //    NSLog(@"count %ld",count);
         
         [self.tableView reloadData];
@@ -144,6 +147,13 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     [updateLabel setText:self.dataManager.updates[indexPath.row]];
     UILabel *themeLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableThemeLabel];
     [themeLabel setText:self.dataManager.themes[indexPath.row]];
+    UIButton *favoriteButton = (UIButton *)[cell.contentView viewWithTag:PRMTableFavoriteButton];
+    if (self.dataManager.isFavorite[indexPath.row]) {
+        [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+    }
+    else {
+        [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_off"] forState:UIControlStateNormal];
+    }
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
 //    thumbnailImageView.layer.masksToBounds = YES;
@@ -289,7 +299,7 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             if([[node getAttributeNamed:@"rel"] isEqualToString:@"tag"]){
                 [latestManager addThemesObject:[node contents]];
             }
-            
+            [latestManager addIsFavorite:NO];
         }
         NSArray *times = [bodyNode findChildTags:@"time"];
         for (HTMLNode *node in times){
@@ -315,6 +325,7 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
                 [self.dataManager insertArticleUrlsObject:latestManager.articleUrls[count]];
                 [self.dataManager insertThemesObject:latestManager.themes[count]];
                 [self.dataManager insertUpdatesObject:latestManager.updates[count]];
+                [self.dataManager insertIsFavorite:[latestManager.isFavorite[count] boolValue]];
             }
             
             [self.tableView reloadData];
@@ -336,6 +347,15 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     
 }
 
+- (IBAction)favoriteButtonTouched:(UIButton *)sender event:(id)event{
+    //タッチしたセルを検索
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    
+    [sender setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+}
 
 
 

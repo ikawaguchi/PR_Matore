@@ -18,7 +18,6 @@ NS_ENUM(NSInteger, PRMTableTag){
 };
 
 static NSInteger const PRMTableHeight = 80;
-static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 
 @interface PRMFavoriteTableViewController ()
 
@@ -92,6 +91,23 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     else if([self.dataManager.themes[indexPath.row] isEqualToString:@"アカリ日記"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"akari"]];
     }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"ARISAブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"ari"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"HIMEKAブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"hime"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"NANASEブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"nana"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"AYUMIブログ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"ayu"]];
+    }
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"ブログ"] ||
+            [self.dataManager.themes[indexPath.row] isEqualToString:@"お知らせ"]){
+        [thumbnailImageView setImage:[UIImage imageNamed:@"all"]];
+    }
+
     
     
     return cell;

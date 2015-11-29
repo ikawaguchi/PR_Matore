@@ -63,6 +63,11 @@
         [self.articleUrls addObject:object];
     }
 }
+- (void)addIsFavorite:(Boolean)object{
+        [self.articleUrls addObject:@(object)];
+}
+
+
 
 - (void)insertArticleUrlsObject:(NSString *)object{
     if (object == nil){
@@ -110,6 +115,11 @@
         [self.updates insertObject:object atIndex:0];
     }
 }
+
+- (void)insertIsFavorite:(Boolean)object{
+    [self.updates insertObject:@(object) atIndex:0];
+}
+
 
 
 @end
