@@ -358,7 +358,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ハルカ日記" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZ7-lf-r80">
-                                            <rect key="frame" x="71" y="56" width="249" height="15"/>
+                                            <rect key="frame" x="71" y="56" width="100" height="15"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" name="HiraKakuProN-W3" family="Hiragino Kaku Gothic ProN" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -368,8 +368,23 @@
                                             <rect key="frame" x="6" y="10" width="58" height="58"/>
                                             <animations/>
                                         </imageView>
+                                        <button opaque="NO" tag="5" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqG-MG-fmz">
+                                            <rect key="frame" x="207" y="48" width="80" height="23"/>
+                                            <animations/>
+                                            <state key="normal" backgroundImage="favorite_on">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="favoriteButtonTouched:event:" destination="rpF-PY-RRx" eventType="touchUpInside" id="5Hg-gX-mMA"/>
+                                                <action selector="favoriteButtonTouched:event:" destination="PzI-J9-zRn" eventType="touchUpInside" id="OGM-rJ-a6S"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vqG-MG-fmz" secondAttribute="trailing" constant="-8" id="6oR-kx-B9q"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vqG-MG-fmz" secondAttribute="bottom" constant="0.5" id="Vxn-hy-ezO"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <connections>
@@ -440,6 +455,7 @@
         <image name="document" width="58" height="38"/>
         <image name="favorite" width="56" height="36"/>
         <image name="favorite_off" width="80" height="20"/>
+        <image name="favorite_on" width="80" height="20"/>
         <image name="schedule" width="50" height="37"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

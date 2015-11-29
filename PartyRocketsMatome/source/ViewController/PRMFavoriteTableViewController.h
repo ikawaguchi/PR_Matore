@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EGOTableViewPullRefreshAndLoadMore/EGORefreshTableHeaderView.h>
 
-@interface PRMFavoriteTableViewController : UITableViewController
+@interface PRMFavoriteTableViewController : UITableViewController<EGORefreshTableHeaderDelegate>
 
+- (void)reloadTableView;
 
 @end

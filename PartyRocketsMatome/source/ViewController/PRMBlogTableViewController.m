@@ -11,6 +11,8 @@
 #import <HTMLParser.h>
 #import <AFNetworking/AFNetworking.h>
 
+#import "PRMFavoriteTableViewController.h"
+
 
 NS_ENUM(NSInteger, PRMTableTag){
     PRMTableTitleLabel = 1,
@@ -329,12 +331,36 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     [operation start];
 }
 
+- (void)reloadTableView
+{
+    NSMutableArray* articles = [[PRMAppDefaults currentDefaults] favoriteBlogArticleUrls];
+    //お気に入りを更新
+    for (int i=0; i < [self.dataManager.articleUrls count]; i++) {
+        Boolean isFind = NO;
+        for (NSString* article in articles) {
+            if ([article isEqualToString:self.dataManager.articleUrls[i]]) {
+                self.dataManager.isFavorite[i] = @(YES);
+                isFind = YES;
+                break;
+            }
+        }
+        if (!isFind) {
+            self.dataManager.isFavorite[i] = @(NO);
+        }
+    }
+    [self.tableView reloadData];
+}
+
 
 -(void)tabBarController:(UITabBarController*)tabBarController didSelectViewController: (UIViewController*)viewController{
-    if(tabBarController.selectedIndex == 0){
-//        [self.tableView setContentOffset:CGPointZero animated:YES];
-    }
     
+    switch (tabBarController.selectedIndex) {
+        case 0:
+            [self reloadTableView];
+            break;
+        default:
+            break;
+    }
 }
 
 - (IBAction)favoriteButtonTouched:(UIButton *)sender event:(id)event{
