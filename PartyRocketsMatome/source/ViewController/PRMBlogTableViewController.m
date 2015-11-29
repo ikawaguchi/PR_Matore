@@ -58,8 +58,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     self.refreshHeaderView.delegate = self;
    [self.tableView addSubview:self.refreshHeaderView];
     
-   // NSLog(@"%@",NSStringFromCGRect(self.refreshHeaderView.frame));
-    
     [self fetchData:1 maxPageNum:10];
     
     //  update the last update date
@@ -80,7 +78,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // NSLog(@"%@", operation.responseString);
         NSError *error = nil;
         HTMLParser *parser = [[HTMLParser alloc] initWithData:responseObject error:&error];
         HTMLNode *bodyNode = [parser body];
@@ -93,7 +90,8 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             if([[node getAttributeNamed:@"rel"] isEqualToString:@"tag"]){
                 [self.dataManager addThemesObject:[node contents]];
             }
-            
+
+            [self.dataManager addIsFavorite:NO];
         }
         
         NSArray *times = [bodyNode findChildTags:@"time"];
@@ -101,9 +99,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             [self.dataManager addUpdatesObject:[node getAttributeNamed:@"datetime"]];
         }
         
-        [self.dataManager addIsFavorite:NO];
-        
-   //    NSLog(@"count %ld",count);
         
         [self.tableView reloadData];
         
@@ -148,7 +143,7 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     UILabel *themeLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableThemeLabel];
     [themeLabel setText:self.dataManager.themes[indexPath.row]];
     UIButton *favoriteButton = (UIButton *)[cell.contentView viewWithTag:PRMTableFavoriteButton];
-    if (self.dataManager.isFavorite[indexPath.row]) {
+    if ([self.dataManager.isFavorite[indexPath.row] boolValue]) {
         [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
     }
     else {
@@ -156,9 +151,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     }
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
-//    thumbnailImageView.layer.masksToBounds = YES;
-//    thumbnailImageView.layer.cornerRadius = 10.0f;
-//    thumbnailImageView.layer.borderWidth  = 0.5f;
     
     if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"haru"]];
@@ -208,7 +200,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 #pragma mark UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-   // NSLog(@"contentsize %lf offset %lf",scrollView.contentSize.height,scrollView.contentOffset.y);
     if(scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height){
         if(self.isFetch == NO){
             [self fetchData:self.maxPageNum+1 maxPageNum:self.maxPageNum+10];
@@ -353,8 +344,15 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     UITouch *touch = [touches anyObject];
     CGPoint currentTouchPosition = [touch locationInView:self.tableView];
     NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    Boolean isFavorite = ![self.dataManager.isFavorite[indexPath.row] boolValue];
+    if (isFavorite) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+    }
+    else {
+        [sender setBackgroundImage:[UIImage imageNamed:@"favorite_off"] forState:UIControlStateNormal];
+    }
+    [self.dataManager updateIsFavorite:isFavorite index:indexPath.row];
     
-    [sender setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
 }
 
 

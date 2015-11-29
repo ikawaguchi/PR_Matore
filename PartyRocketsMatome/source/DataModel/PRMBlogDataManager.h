@@ -31,6 +31,7 @@
 - (void)insertUpdatesObject:(NSString *)object;
 - (void)insertIsFavorite:(Boolean)object;
 
+- (void)updateIsFavorite:(Boolean)object index:(NSInteger)index;
 
 - (NSInteger)count;
 

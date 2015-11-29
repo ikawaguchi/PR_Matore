@@ -15,6 +15,7 @@
 @property (readwrite, nonatomic) NSMutableArray *articleUrls;
 @property (readwrite, nonatomic) NSMutableArray *themes;
 @property (readwrite, nonatomic) NSMutableArray *updates;
+@property (readwrite, nonatomic) NSMutableArray *isFavorite;
 
 @end
 
@@ -27,6 +28,7 @@
         self.articleUrls = [NSMutableArray array];
         self.themes = [NSMutableArray array];
         self.updates = [NSMutableArray array];
+        self.isFavorite = [NSMutableArray array];
     }
     
     return self;
@@ -64,7 +66,7 @@
     }
 }
 - (void)addIsFavorite:(Boolean)object{
-        [self.articleUrls addObject:@(object)];
+    [self.isFavorite addObject:@(object)];
 }
 
 
@@ -117,9 +119,11 @@
 }
 
 - (void)insertIsFavorite:(Boolean)object{
-    [self.updates insertObject:@(object) atIndex:0];
+    [self.isFavorite insertObject:@(object) atIndex:0];
 }
 
-
+- (void)updateIsFavorite:(Boolean)object index:(NSInteger)index{
+    self.isFavorite[index] = @(object);
+}
 
 @end
