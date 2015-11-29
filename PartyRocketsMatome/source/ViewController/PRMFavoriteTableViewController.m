@@ -39,6 +39,10 @@ static NSInteger const PRMTableHeight = 80;
     [super viewDidLoad];
     
     self.dataManager = [PRMBlogDataManager new];
+    self.dataManager.articleUrls = [[PRMAppDefaults currentDefaults] favoriteBlogArticleUrls];
+    self.dataManager.titles = [[PRMAppDefaults currentDefaults] favoriteBlogTitles];
+    self.dataManager.themes = [[PRMAppDefaults currentDefaults] favoriteBlogThemes];
+    self.dataManager.updates = [[PRMAppDefaults currentDefaults] favoriteBlogUpdates];
     
     // TableViewの空のセルのところの境界線が消えるおまじない
     UIView *view = [[UIView alloc] initWithFrame:CGRectZero];
@@ -46,11 +50,16 @@ static NSInteger const PRMTableHeight = 80;
     [self.tableView setTableHeaderView:view];
     [self.tableView setTableFooterView:view];
     
-   // NSLog(@"%@",NSStringFromCGRect(self.refreshHeaderView.frame));
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
 }
 
 

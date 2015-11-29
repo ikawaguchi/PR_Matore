@@ -364,14 +364,17 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVI-aR-B00">
-                                            <rect key="frame" x="13" y="11" width="50" height="57"/>
+                                        <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uVI-aR-B00">
+                                            <rect key="frame" x="6" y="10" width="58" height="58"/>
                                             <animations/>
                                         </imageView>
                                     </subviews>
                                     <animations/>
                                 </tableViewCellContentView>
                                 <animations/>
+                                <connections>
+                                    <segue destination="yGx-7g-v6p" kind="push" id="ZS3-xh-F4d"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -387,6 +390,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KDn-sY-bNd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-261" y="-408"/>
+        </scene>
+        <!--Blog Web View Controller-->
+        <scene sceneID="Lu5-wm-iUt">
+            <objects>
+                <viewController id="yGx-7g-v6p" customClass="PRMBlogWebViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9of-d8-5k5"/>
+                        <viewControllerLayoutGuide type="bottom" id="cDj-ed-sQ7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hxD-QJ-goQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UTx-td-0Uz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="delegate" destination="hxD-QJ-goQ" id="Lol-8H-z6Q"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UTx-td-0Uz" firstAttribute="leading" secondItem="hxD-QJ-goQ" secondAttribute="leadingMargin" constant="-16" id="Tiu-E6-3hD"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="UTx-td-0Uz" secondAttribute="bottom" id="Vd4-H6-nlb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="UTx-td-0Uz" secondAttribute="trailing" constant="-16" id="b6G-dk-gMq"/>
+                            <constraint firstItem="UTx-td-0Uz" firstAttribute="top" secondItem="hxD-QJ-goQ" secondAttribute="topMargin" id="qra-L6-4jX"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <navigationItem key="navigationItem" id="nva-BM-rPg">
+                        <barButtonItem key="backBarButtonItem" title=" " id="1ka-MJ-2Dg"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
+                    <connections>
+                        <outlet property="ibWebView" destination="UTx-td-0Uz" id="tSR-Ib-kG7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTX-pg-mPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="-408"/>
         </scene>
     </scenes>
     <resources>

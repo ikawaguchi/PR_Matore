@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PRMBlogDataManager.h"
+
 
 @interface PRMAppDefaults : NSObject
 
@@ -18,5 +20,15 @@
 
 - (NSString *)blogOpenTitle;
 - (void)setBlogOpenTitle:(NSString *)param;
+
+- (NSMutableArray *)favoriteBlogTitles;
+- (void)setFavoriteBlogTitles:(NSMutableArray *)param;
+- (NSMutableArray *)favoriteBlogArticleUrls;
+- (void)setFavoriteBlogArticleUrls:(NSMutableArray *)param;
+- (NSMutableArray *)favoriteBlogThemes;
+- (void)setFavoriteBlogThemes:(NSMutableArray *)param;
+- (NSMutableArray *)favoriteBlogUpdates;
+- (void)setFavoriteBlogUpdates:(NSMutableArray *)param;
+
 
 @end

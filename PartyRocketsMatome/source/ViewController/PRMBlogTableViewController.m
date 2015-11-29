@@ -86,12 +86,11 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             if([[node getAttributeNamed:@"class"] isEqualToString:@"skinArticleTitle"]){
                 [self.dataManager addTitlesObject:[node contents]];
                 [self.dataManager addArticleUrlsObject:[node getAttributeNamed:@"href"]];
+                [self.dataManager addIsFavorite:[self checkIsFavorite:[node getAttributeNamed:@"href"]]];
             }
             if([[node getAttributeNamed:@"rel"] isEqualToString:@"tag"]){
                 [self.dataManager addThemesObject:[node contents]];
             }
-
-            [self.dataManager addIsFavorite:NO];
         }
         
         NSArray *times = [bodyNode findChildTags:@"time"];
@@ -286,11 +285,11 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             if([[node getAttributeNamed:@"class"] isEqualToString:@"skinArticleTitle"]){
                 [latestManager addTitlesObject:[node contents]];
                 [latestManager addArticleUrlsObject:[node getAttributeNamed:@"href"]];
+                [latestManager addIsFavorite:[self checkIsFavorite:[node getAttributeNamed:@"href"]]];
             }
             if([[node getAttributeNamed:@"rel"] isEqualToString:@"tag"]){
                 [latestManager addThemesObject:[node contents]];
             }
-            [latestManager addIsFavorite:NO];
         }
         NSArray *times = [bodyNode findChildTags:@"time"];
         for (HTMLNode *node in times){
@@ -343,18 +342,58 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     NSSet *touches = [event allTouches];
     UITouch *touch = [touches anyObject];
     CGPoint currentTouchPosition = [touch locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
-    Boolean isFavorite = ![self.dataManager.isFavorite[indexPath.row] boolValue];
+    NSInteger index = [self.tableView indexPathForRowAtPoint: currentTouchPosition].row;
+    
+    //お気に入りボタンを切替
+    Boolean isFavorite = ![self.dataManager.isFavorite[index] boolValue];
     if (isFavorite) {
         [sender setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
     }
     else {
         [sender setBackgroundImage:[UIImage imageNamed:@"favorite_off"] forState:UIControlStateNormal];
     }
-    [self.dataManager updateIsFavorite:isFavorite index:indexPath.row];
+    [self.dataManager updateIsFavorite:isFavorite index:index];
     
+    NSMutableArray* favoriteArticles = [[PRMAppDefaults currentDefaults] favoriteBlogArticleUrls];
+    NSMutableArray* favoriteTitles   = [[PRMAppDefaults currentDefaults] favoriteBlogTitles];
+    NSMutableArray* favoriteThemes   = [[PRMAppDefaults currentDefaults] favoriteBlogThemes];
+    NSMutableArray* favoriteUpdates  = [[PRMAppDefaults currentDefaults] favoriteBlogUpdates];
+    
+    if (isFavorite) {
+        [favoriteArticles addObject:self.dataManager.articleUrls[index]];
+        [favoriteThemes addObject:self.dataManager.themes[index]];
+        [favoriteTitles addObject:self.dataManager.titles[index]];
+        [favoriteUpdates addObject:self.dataManager.updates[index]];
+    }
+    else {
+        for (int i=0; i<[favoriteArticles count]; i++) {
+            if ([favoriteArticles[i] isEqualToString:self.dataManager.articleUrls[index]]) {
+                [favoriteArticles removeObjectAtIndex:index];
+                [favoriteThemes removeObjectAtIndex:index];
+                [favoriteTitles removeObjectAtIndex:index];
+                [favoriteUpdates removeObjectAtIndex:index];
+                
+                break;
+            }
+        }
+    }
+    
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogArticleUrls:favoriteArticles];
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogThemes:favoriteThemes];
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogTitles:favoriteTitles];
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogUpdates:favoriteUpdates];
 }
 
+- (Boolean)checkIsFavorite:(NSString *)articleUrl
+{
+    NSMutableArray* array = [[PRMAppDefaults currentDefaults] favoriteBlogArticleUrls];
+    for (NSString* favoriteArticleUrl in array) {
+        if ([favoriteArticleUrl isEqualToString:articleUrl]) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 
 @end

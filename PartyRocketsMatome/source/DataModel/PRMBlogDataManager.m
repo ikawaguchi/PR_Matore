@@ -11,12 +11,6 @@
 
 @interface PRMBlogDataManager()
 
-@property (readwrite, nonatomic) NSMutableArray *titles;
-@property (readwrite, nonatomic) NSMutableArray *articleUrls;
-@property (readwrite, nonatomic) NSMutableArray *themes;
-@property (readwrite, nonatomic) NSMutableArray *updates;
-@property (readwrite, nonatomic) NSMutableArray *isFavorite;
-
 @end
 
 @implementation PRMBlogDataManager
@@ -125,5 +119,56 @@
 - (void)updateIsFavorite:(Boolean)object index:(NSInteger)index{
     self.isFavorite[index] = @(object);
 }
+
+- (void)deleteTitlesObject:(NSInteger)index
+{
+    if ([self.titles count] > index) {
+        [self.titles removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteTitlesObject Index OverFlow");
+    }
+}
+
+- (void)deleteArticleUrlsObject:(NSInteger)index
+{
+    if ([self.titles count] > index) {
+        [self.titles removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteTitlesObject Index OverFlow");
+    }
+}
+
+- (void)deleteThemesObject:(NSInteger)index
+{
+    if ([self.themes count] > index) {
+        [self.themes removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteThemesObject Index OverFlow");
+    }
+}
+
+- (void)deleteUpdatesObject:(NSInteger)index
+{
+    if ([self.updates count] > index) {
+        [self.updates removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteUpdatesObject Index OverFlow");
+    }
+}
+
+- (void)deleteIsFavoriteObject:(NSInteger)index
+{
+    if ([self.isFavorite count] > index) {
+        [self.isFavorite removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteIsFavoriteObject Index OverFlow");
+    }
+}
+
 
 @end
