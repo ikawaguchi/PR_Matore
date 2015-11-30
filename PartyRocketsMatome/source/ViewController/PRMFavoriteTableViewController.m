@@ -99,8 +99,7 @@ static NSInteger const PRMTableHeight = 80;
     [themeLabel setText:self.dataManager.themes[indexPath.row]];
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
-    thumbnailImageView.layer.masksToBounds = YES;
-    thumbnailImageView.layer.cornerRadius = 10.0f;
+
     if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"haru"]];
     }
