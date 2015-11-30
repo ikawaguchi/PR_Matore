@@ -8,8 +8,12 @@
 
 #import "PRMAppDefaults.h"
 
-NSString *const PRMAppDefaultsBlogOpenUrl = @"PRMAppDefaultsBlogOpenUrl";
-NSString *const PRMAppDefaultsBlogOpenTitle = @"PRMAppDefaultsBlogOpenTitle";
+NSString *const PRMAppDefaultsBlogOpenUrl               = @"PRMAppDefaultsBlogOpenUrl";
+NSString *const PRMAppDefaultsBlogOpenTitle             = @"PRMAppDefaultsBlogOpenTitle";
+NSString *const PRMAppDefaultsFavoriteBlogTitles        = @"PRMAppDefaultsFavoriteBlogTitles";
+NSString *const PRMAppDefaultsFavoriteBlogArticleUrls   = @"PRMAppDefaultsFavoriteBlogArticleUrls";
+NSString *const PRMAppDefaultsFavoriteBlogThemes        = @"PRMAppDefaultsFavoriteBlogThemes";
+NSString *const PRMAppDefaultsFavoriteBlogUpdates       = @"PRMAppDefaultsFavoriteBlogUpdates";
 
 
 @implementation PRMAppDefaults
@@ -73,6 +77,59 @@ static PRMAppDefaults *currentDefaults = nil;
 - (void)setBlogOpenTitle:(NSString *)param{
     [[self defaults] setObject:param forKey:PRMAppDefaultsBlogOpenTitle];
 }
+
+
+#pragma mark - FavoriteBlog
+
+- (NSMutableArray *)favoriteBlogTitles{
+    NSMutableArray* array = [[[self defaults] arrayForKey:PRMAppDefaultsFavoriteBlogTitles] mutableCopy];
+    if (array == nil) {
+        array = [NSMutableArray array];
+    }
+    return array;
+}
+
+- (void)setFavoriteBlogTitles:(NSMutableArray *)param{
+    [[self defaults] setObject:param forKey:PRMAppDefaultsFavoriteBlogTitles];
+}
+
+- (NSMutableArray *)favoriteBlogArticleUrls{
+    NSMutableArray* array = [[[self defaults] arrayForKey:PRMAppDefaultsFavoriteBlogArticleUrls] mutableCopy];
+    if (array == nil) {
+        array = [NSMutableArray array];
+    }
+    return array;
+}
+
+- (void)setFavoriteBlogArticleUrls:(NSMutableArray *)param{
+    [[self defaults] setObject:param forKey:PRMAppDefaultsFavoriteBlogArticleUrls];
+}
+
+- (NSMutableArray *)favoriteBlogThemes{
+    NSMutableArray* array = [[[self defaults] arrayForKey:PRMAppDefaultsFavoriteBlogThemes] mutableCopy];
+    if (array == nil) {
+        array = [NSMutableArray array];
+    }
+    return array;
+}
+
+- (void)setFavoriteBlogThemes:(NSMutableArray *)param{
+    [[self defaults] setObject:param forKey:PRMAppDefaultsFavoriteBlogThemes];
+}
+
+- (NSMutableArray *)favoriteBlogUpdates{
+    NSMutableArray* array = [[[self defaults] arrayForKey:PRMAppDefaultsFavoriteBlogUpdates] mutableCopy];
+    if (array == nil) {
+        array = [NSMutableArray array];
+    }
+    return array;
+}
+
+- (void)setFavoriteBlogUpdates:(NSMutableArray *)param{
+    [[self defaults] setObject:param forKey:PRMAppDefaultsFavoriteBlogUpdates];
+}
+
+
 
 
 @end

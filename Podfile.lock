@@ -20,6 +20,7 @@ PODS:
   - AFNetworking/UIKit (2.4.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - ATMHud (0.0.1)
   - BlocksKit (2.2.5):
     - BlocksKit/All (= 2.2.5)
   - BlocksKit/All (2.2.5):
@@ -48,6 +49,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - ATMHud
   - BlocksKit
   - EGOTableViewPullRefreshAndLoadMore
   - GoogleAnalytics-iOS-SDK (= 3.0.3)
@@ -58,6 +60,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 41d45d2c14219af0fa5addf3cfd433a002c13c9f
+  ATMHud: 47b3f5c9034918b83ce0b42e9fe744d4c49d7d00
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
   EGOTableViewPullRefreshAndLoadMore: 118a0824590db042d42e08fcc442b93cebf15e73
   GoogleAnalytics-iOS-SDK: dcd005926418f28144e9147bf8e393b3063b0066
@@ -66,4 +69,4 @@ SPEC CHECKSUMS:
   NJKWebViewProgress: f481fd424cb5ecc27eacae11b5397db92fba9a4d
   Objective-C-HMTL-Parser: cc468311d0ae434646c56aae3b62426977f19ca0
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

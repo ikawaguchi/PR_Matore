@@ -11,11 +11,6 @@
 
 @interface PRMBlogDataManager()
 
-@property (readwrite, nonatomic) NSMutableArray *titles;
-@property (readwrite, nonatomic) NSMutableArray *articleUrls;
-@property (readwrite, nonatomic) NSMutableArray *themes;
-@property (readwrite, nonatomic) NSMutableArray *updates;
-
 @end
 
 @implementation PRMBlogDataManager
@@ -27,6 +22,7 @@
         self.articleUrls = [NSMutableArray array];
         self.themes = [NSMutableArray array];
         self.updates = [NSMutableArray array];
+        self.isFavorite = [NSMutableArray array];
     }
     
     return self;
@@ -63,6 +59,11 @@
         [self.articleUrls addObject:object];
     }
 }
+- (void)addIsFavorite:(Boolean)object{
+    [self.isFavorite addObject:@(object)];
+}
+
+
 
 - (void)insertArticleUrlsObject:(NSString *)object{
     if (object == nil){
@@ -108,6 +109,64 @@
     }
     else{
         [self.updates insertObject:object atIndex:0];
+    }
+}
+
+- (void)insertIsFavorite:(Boolean)object{
+    [self.isFavorite insertObject:@(object) atIndex:0];
+}
+
+- (void)updateIsFavorite:(Boolean)object index:(NSInteger)index{
+    self.isFavorite[index] = @(object);
+}
+
+- (void)deleteTitlesObject:(NSInteger)index
+{
+    if ([self.titles count] > index) {
+        [self.titles removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteTitlesObject Index OverFlow");
+    }
+}
+
+- (void)deleteArticleUrlsObject:(NSInteger)index
+{
+    if ([self.titles count] > index) {
+        [self.titles removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteTitlesObject Index OverFlow");
+    }
+}
+
+- (void)deleteThemesObject:(NSInteger)index
+{
+    if ([self.themes count] > index) {
+        [self.themes removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteThemesObject Index OverFlow");
+    }
+}
+
+- (void)deleteUpdatesObject:(NSInteger)index
+{
+    if ([self.updates count] > index) {
+        [self.updates removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteUpdatesObject Index OverFlow");
+    }
+}
+
+- (void)deleteIsFavoriteObject:(NSInteger)index
+{
+    if ([self.isFavorite count] > index) {
+        [self.isFavorite removeObjectAtIndex:index];
+    }
+    else {
+        NSLog(@"deleteIsFavoriteObject Index OverFlow");
     }
 }
 

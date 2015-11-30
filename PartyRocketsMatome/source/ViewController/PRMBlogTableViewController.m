@@ -11,12 +11,15 @@
 #import <HTMLParser.h>
 #import <AFNetworking/AFNetworking.h>
 
+#import "PRMFavoriteTableViewController.h"
+
 
 NS_ENUM(NSInteger, PRMTableTag){
     PRMTableTitleLabel = 1,
     PRMTableUpdateLabel = 2,
     PRMTableThemeLabel = 3,
     PRMTableImageView = 4,
+    PRMTableFavoriteButton = 5,
 };
 
 static NSInteger const PRMTableHeight = 80;
@@ -57,8 +60,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     self.refreshHeaderView.delegate = self;
    [self.tableView addSubview:self.refreshHeaderView];
     
-   // NSLog(@"%@",NSStringFromCGRect(self.refreshHeaderView.frame));
-    
     [self fetchData:1 maxPageNum:10];
     
     //  update the last update date
@@ -79,7 +80,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        // NSLog(@"%@", operation.responseString);
         NSError *error = nil;
         HTMLParser *parser = [[HTMLParser alloc] initWithData:responseObject error:&error];
         HTMLNode *bodyNode = [parser body];
@@ -88,11 +88,11 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             if([[node getAttributeNamed:@"class"] isEqualToString:@"skinArticleTitle"]){
                 [self.dataManager addTitlesObject:[node contents]];
                 [self.dataManager addArticleUrlsObject:[node getAttributeNamed:@"href"]];
+                [self.dataManager addIsFavorite:[self checkIsFavorite:[node getAttributeNamed:@"href"]]];
             }
             if([[node getAttributeNamed:@"rel"] isEqualToString:@"tag"]){
                 [self.dataManager addThemesObject:[node contents]];
             }
-            
         }
         
         NSArray *times = [bodyNode findChildTags:@"time"];
@@ -100,7 +100,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             [self.dataManager addUpdatesObject:[node getAttributeNamed:@"datetime"]];
         }
         
-   //    NSLog(@"count %ld",count);
         
         [self.tableView reloadData];
         
@@ -144,11 +143,15 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     [updateLabel setText:self.dataManager.updates[indexPath.row]];
     UILabel *themeLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableThemeLabel];
     [themeLabel setText:self.dataManager.themes[indexPath.row]];
+    UIButton *favoriteButton = (UIButton *)[cell.contentView viewWithTag:PRMTableFavoriteButton];
+    if ([self.dataManager.isFavorite[indexPath.row] boolValue]) {
+        [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+    }
+    else {
+        [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_off"] forState:UIControlStateNormal];
+    }
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
-//    thumbnailImageView.layer.masksToBounds = YES;
-//    thumbnailImageView.layer.cornerRadius = 10.0f;
-//    thumbnailImageView.layer.borderWidth  = 0.5f;
     
     if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"haru"]];
@@ -198,7 +201,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 #pragma mark UIScrollViewDelegate Methods
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-   // NSLog(@"contentsize %lf offset %lf",scrollView.contentSize.height,scrollView.contentOffset.y);
     if(scrollView.contentOffset.y > scrollView.contentSize.height - scrollView.frame.size.height){
         if(self.isFetch == NO){
             [self fetchData:self.maxPageNum+1 maxPageNum:self.maxPageNum+10];
@@ -285,11 +287,11 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
             if([[node getAttributeNamed:@"class"] isEqualToString:@"skinArticleTitle"]){
                 [latestManager addTitlesObject:[node contents]];
                 [latestManager addArticleUrlsObject:[node getAttributeNamed:@"href"]];
+                [latestManager addIsFavorite:[self checkIsFavorite:[node getAttributeNamed:@"href"]]];
             }
             if([[node getAttributeNamed:@"rel"] isEqualToString:@"tag"]){
                 [latestManager addThemesObject:[node contents]];
             }
-            
         }
         NSArray *times = [bodyNode findChildTags:@"time"];
         for (HTMLNode *node in times){
@@ -315,6 +317,7 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
                 [self.dataManager insertArticleUrlsObject:latestManager.articleUrls[count]];
                 [self.dataManager insertThemesObject:latestManager.themes[count]];
                 [self.dataManager insertUpdatesObject:latestManager.updates[count]];
+                [self.dataManager insertIsFavorite:[latestManager.isFavorite[count] boolValue]];
             }
             
             [self.tableView reloadData];
@@ -328,15 +331,95 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     [operation start];
 }
 
-
--(void)tabBarController:(UITabBarController*)tabBarController didSelectViewController: (UIViewController*)viewController{
-    if(tabBarController.selectedIndex == 0){
-//        [self.tableView setContentOffset:CGPointZero animated:YES];
+- (void)reloadTableView
+{
+    NSMutableArray* articles = [[PRMAppDefaults currentDefaults] favoriteBlogArticleUrls];
+    //お気に入りを更新
+    for (int i=0; i < [self.dataManager.articleUrls count]; i++) {
+        Boolean isFind = NO;
+        for (NSString* article in articles) {
+            if ([article isEqualToString:self.dataManager.articleUrls[i]]) {
+                self.dataManager.isFavorite[i] = @(YES);
+                isFind = YES;
+                break;
+            }
+        }
+        if (!isFind) {
+            self.dataManager.isFavorite[i] = @(NO);
+        }
     }
-    
+    [self.tableView reloadData];
 }
 
 
+-(void)tabBarController:(UITabBarController*)tabBarController didSelectViewController: (UIViewController*)viewController{
+    
+    switch (tabBarController.selectedIndex) {
+        case 0:
+            [self reloadTableView];
+            break;
+        default:
+            break;
+    }
+}
+
+- (IBAction)favoriteButtonTouched:(UIButton *)sender event:(id)event{
+    //タッチしたセルを検索
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+    NSInteger index = [self.tableView indexPathForRowAtPoint: currentTouchPosition].row;
+    
+    //お気に入りボタンを切替
+    Boolean isFavorite = ![self.dataManager.isFavorite[index] boolValue];
+    if (isFavorite) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"favorite_on"] forState:UIControlStateNormal];
+    }
+    else {
+        [sender setBackgroundImage:[UIImage imageNamed:@"favorite_off"] forState:UIControlStateNormal];
+    }
+    [self.dataManager updateIsFavorite:isFavorite index:index];
+    
+    NSMutableArray* favoriteArticles = [[PRMAppDefaults currentDefaults] favoriteBlogArticleUrls];
+    NSMutableArray* favoriteTitles   = [[PRMAppDefaults currentDefaults] favoriteBlogTitles];
+    NSMutableArray* favoriteThemes   = [[PRMAppDefaults currentDefaults] favoriteBlogThemes];
+    NSMutableArray* favoriteUpdates  = [[PRMAppDefaults currentDefaults] favoriteBlogUpdates];
+    
+    if (isFavorite) {
+        [favoriteArticles addObject:self.dataManager.articleUrls[index]];
+        [favoriteThemes addObject:self.dataManager.themes[index]];
+        [favoriteTitles addObject:self.dataManager.titles[index]];
+        [favoriteUpdates addObject:self.dataManager.updates[index]];
+    }
+    else {
+        for (int i=0; i<[favoriteArticles count]; i++) {
+            if ([favoriteArticles[i] isEqualToString:self.dataManager.articleUrls[index]]) {
+                [favoriteArticles removeObjectAtIndex:index];
+                [favoriteThemes removeObjectAtIndex:index];
+                [favoriteTitles removeObjectAtIndex:index];
+                [favoriteUpdates removeObjectAtIndex:index];
+                
+                break;
+            }
+        }
+    }
+    
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogArticleUrls:favoriteArticles];
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogThemes:favoriteThemes];
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogTitles:favoriteTitles];
+    [[PRMAppDefaults currentDefaults] setFavoriteBlogUpdates:favoriteUpdates];
+}
+
+- (Boolean)checkIsFavorite:(NSString *)articleUrl
+{
+    NSMutableArray* array = [[PRMAppDefaults currentDefaults] favoriteBlogArticleUrls];
+    for (NSString* favoriteArticleUrl in array) {
+        if ([favoriteArticleUrl isEqualToString:articleUrl]) {
+            return YES;
+        }
+    }
+    return NO;
+}
 
 
 @end
