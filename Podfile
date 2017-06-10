@@ -1,6 +1,8 @@
 platform :ios, '7.0'
 inhibit_all_warnings!
 
+target 'PartyRocketsMatome' do
+
 ## Common
 pod 'BlocksKit'
 pod "AFNetworking", "~> 2.0"
@@ -22,3 +24,5 @@ pod 'NJKScrollFullScreen'
 pod 'NJKWebViewProgress'
 pod 'EGOTableViewPullRefreshAndLoadMore'
 pod 'ATMHud'
+
+end 

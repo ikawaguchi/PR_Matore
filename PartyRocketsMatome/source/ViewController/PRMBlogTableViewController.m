@@ -23,7 +23,7 @@ NS_ENUM(NSInteger, PRMTableTag){
 };
 
 static NSInteger const PRMTableHeight = 80;
-static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
+static NSString *const PRMBaseUrl = @"https://ameblo.jp/partyrockets/";
 
 @interface PRMBlogTableViewController ()
 
@@ -137,8 +137,6 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"prototypeIdentifier" forIndexPath:indexPath];
     
-    UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableTitleLabel];
-    [titleLabel setText:self.dataManager.titles[indexPath.row]];
     UILabel *updateLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableUpdateLabel];
     [updateLabel setText:self.dataManager.updates[indexPath.row]];
     UILabel *themeLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableThemeLabel];
@@ -150,13 +148,16 @@ static NSString *const PRMBaseUrl = @"http://ameblo.jp/partyrockets/";
     else {
         [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_off"] forState:UIControlStateNormal];
     }
+    UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableTitleLabel];
+    NSLog(@"path %ld title %@",indexPath.row,self.dataManager.titles[indexPath.row]);
+    [titleLabel setText:self.dataManager.titles[0]];
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
     
-    if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"]){
+    if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"] || [self.dataManager.themes[indexPath.row] isEqualToString:@"HARUKAブログ"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"haru"]];
     }
-    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"フミカ日記"]){
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"フミカ日記"] || [self.dataManager.themes[indexPath.row] isEqualToString:@"FUMIKAブログ"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"fumi"]];
     }
     else if([self.dataManager.themes[indexPath.row] isEqualToString:@"アカリ日記"]){

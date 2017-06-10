@@ -100,10 +100,10 @@ static NSInteger const PRMTableHeight = 80;
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
 
-    if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"]){
+    if([self.dataManager.themes[indexPath.row] isEqualToString:@"ハルカ日記"] || [self.dataManager.themes[indexPath.row] isEqualToString:@"HARUKAブログ"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"haru"]];
     }
-    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"フミカ日記"]){
+    else if([self.dataManager.themes[indexPath.row] isEqualToString:@"フミカ日記"] || [self.dataManager.themes[indexPath.row] isEqualToString:@"FUMIKAブログ"]){
         [thumbnailImageView setImage:[UIImage imageNamed:@"fumi"]];
     }
     else if([self.dataManager.themes[indexPath.row] isEqualToString:@"アカリ日記"]){
