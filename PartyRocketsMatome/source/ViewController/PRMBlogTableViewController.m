@@ -136,7 +136,11 @@ static NSString *const PRMBaseUrl = @"https://ameblo.jp/partyrockets/";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"prototypeIdentifier" forIndexPath:indexPath];
-    
+
+    UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableTitleLabel];
+    //タイトルに空白文字と改行が混じっているためトリミング
+    NSString* titleStr = [self.dataManager.titles[indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [titleLabel setText:titleStr];
     UILabel *updateLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableUpdateLabel];
     [updateLabel setText:self.dataManager.updates[indexPath.row]];
     UILabel *themeLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableThemeLabel];
@@ -148,9 +152,6 @@ static NSString *const PRMBaseUrl = @"https://ameblo.jp/partyrockets/";
     else {
         [favoriteButton setBackgroundImage:[UIImage imageNamed:@"favorite_off"] forState:UIControlStateNormal];
     }
-    UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableTitleLabel];
-    NSLog(@"path %ld title %@",indexPath.row,self.dataManager.titles[indexPath.row]);
-    [titleLabel setText:self.dataManager.titles[0]];
     
     UIImageView *thumbnailImageView = (UIImageView *)[cell.contentView viewWithTag:PRMTableImageView];
     

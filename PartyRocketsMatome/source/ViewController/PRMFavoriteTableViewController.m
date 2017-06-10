@@ -92,7 +92,9 @@ static NSInteger const PRMTableHeight = 80;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"prototypeIdentifier" forIndexPath:indexPath];
     
     UILabel *titleLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableTitleLabel];
-    [titleLabel setText:self.dataManager.titles[indexPath.row]];
+    //タイトルに空白文字と改行が混じっているためトリミング
+    NSString* titleStr = [self.dataManager.titles[indexPath.row] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    [titleLabel setText:titleStr];
     UILabel *updateLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableUpdateLabel];
     [updateLabel setText:self.dataManager.updates[indexPath.row]];
     UILabel *themeLabel = (UILabel *)[cell.contentView viewWithTag:PRMTableThemeLabel];
